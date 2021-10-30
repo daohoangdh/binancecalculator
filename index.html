@@ -1,0 +1,267 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binance Trade Calculator - Daohoangdhh</title>
+<head>
+    <style>
+        body{
+            background: rgb(0, 0, 0);
+            color: white;
+        }
+        .header{
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            display: block;
+            
+        }
+        .headtext{
+
+        }
+        .trigia{
+            text-align: center;
+    min-height: 50px;
+    display: flex;
+    width: 100%;
+        }
+        .trigia #showgiavnd{
+    flex: 1;
+    text-align: center;
+    font-size: 25px;
+    padding: 10px;
+    font-weight: bold;
+    color: #6cff72;
+    align-self: center;
+        }
+        .trigia .showtigia{
+            align-self: center;
+        }
+        
+        input{
+    font-size: 16px;
+    font-weight: bold;
+        }
+        input.inputgia{
+            width: 60px;
+            border: 0px solid greenyellow;
+            background: greenyellow;
+        }
+        input.inputbe{
+            width: 30px;
+        }
+        input.inputvua{
+            width: 60px;
+        }
+        #showgiamua{
+            padding:15px;
+            border:1px solid green;
+        }
+        table{
+            width: 100%;
+            border: 1px solid white;
+        }
+        table tr td.head{
+            font-size:11px;
+            font-weight: bold;
+        }
+        table .showgia{
+            font-size:20px;
+            font-weight: bold;
+            min-height:30px;
+        }
+        table.giaban tr td{
+            border:1px solid rgb(75, 75, 75);
+            width:25%;
+            color: #31ff31;
+        }
+        table.giaban.catlo tr td{
+            color: #da9fff;
+
+        }
+        table tr td.middle{
+            text-align: center;
+        }
+        table tr td.end{
+            text-align: right;
+        }
+        .textbold{
+            font-weight: bold;
+            font-size: 13px;
+        }
+        .headline{
+            font-weight: bold;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">BINANCE STOCK TRADE CALCULATOR</div>
+    <div class="headtext">
+    Tài sản <input type="number" class="inputvua" id="taisandangco" value="100">
+    Giá mua vào <input type="number" class="inputgia" id="giamua">
+
+    </div>
+    <div class="trigia">
+    <div id="showgiavnd"></div>
+    <div class="showtigia">Tỉ giá: <input type="number" class="inputvua" id="tigia" value="22680"></div>
+</div>
+</div>
+    
+    
+    <table>
+        <tr>
+            <td><span class="textbold">TAKE PROFIT  </span><input id="dutinhban" type="number" value="1" class="inputbe"> Stop Loss <input id="dutinhcatlo" type="number" value="0.8" class="inputbe"> Fee <input id="phibanra" class="inputbe" type="number" value="0.1"></td>
+        </tr>
+        <tr>
+            <td>
+                <table class="giaban">
+                    <tr>
+                        <td class="head">GIÁ BÁN</td>
+                        <td class="head middle">TÀI SẢN</td>
+                        <td class="head middle">LÃI $</td>
+                        <td class="head end">LÃI VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td><div id="giadutinhban" class="showgia"></div></td>
+                        <td class="middle"><div id="trigiasauban" class="showgia"></div></td>
+                        <td class="middle"><div id="loinhuansauban" class="showgia"></div></td>
+                        <td class="end"><div id="loinhuanvnd" class="showgia"></div></td>
+    
+                    </tr>
+                </table>
+                
+    
+            </td>
+            </tr>
+            <tr>
+                <td class="headline">STOP LOSS</td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="giaban catlo">
+                        <tr>
+                            <td class="head">GIÁ BÁN</td>
+                            <td class="head middle">TÀI SẢN</td>
+                            <td class="head middle">LỖ</td>
+                            <td class="head end">LỖ VNĐ</td>
+                        </tr>
+                       <tr>
+                        <td><div id="giacatlo" class="showgia"></div></td>
+                        <td class="middle"><div id="trigiasaucatlo" class="showgia"></div></td>
+                        <td class="middle"><div id="thiethai" class="showgia"></div></td>
+                        <td class="end"><div id="thiethaivnd" class="showgia"></div></td>
+                       </tr>
+                    </table>
+                </td>
+    
+        </tr>
+    </table>
+    
+    Nhap gia ban ra<input id="giamuonban" type="number" value="1" class="inputbe">
+    <input id="phigiamuonban" type="number" value="0.1" class="inputbe">
+    
+    <table>
+    <tr>
+        <td>Chenh lech gia</td>
+       <td>Loi nhuan sau ban %</td>
+       <td>loi nhuan sau ban tri gia</td>
+       <td>Tong tai san</td>
+    
+       <td>Loi nhuan vnd</td>
+       <td>Tong tai san vnd</td>
+    </tr>
+    <tr>
+        <td><div id="chenhlechgiaban" class="showgia"></div></td>
+        <td><div id="loinhuangiamuonbanphantram" class="showgia"></div></td>
+        <td><div id="loinhuangiamuonban" class="showgia"></div></td>
+        <td><div id="tongtaisansaumuonban" class="showgia"></div></td>
+        <td><div id="loinhuangiamuonbanvnd" class="showgia"></div></td>
+        <td><div id="tongtaisansaumuonbanvnd" class="showgia"></div></td>
+    </tr>
+    </table>
+    
+    
+    
+    
+    <script>
+       function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    function dutinhban(){
+                     //gia du tinh ban ra
+        var taisan = document.getElementById("taisandangco").valueAsNumber;   
+        var tigia = document.getElementById("tigia").valueAsNumber;   
+        var vnd = taisan * tigia;
+        document.getElementById('showgiavnd').innerHTML = numberWithCommas(vnd);
+        var phibanra = document.getElementById("phibanra").valueAsNumber;   
+    
+        var giamua = document.getElementById("giamua").valueAsNumber;
+        var dtbrval = document.getElementById("dutinhban").valueAsNumber;
+        var dtbr = giamua + (giamua * dtbrval/100);
+        document.getElementById('giadutinhban').innerHTML = dtbr.toFixed(2);
+    
+        var trigiasauban = taisan + (taisan * dtbrval/100) - (taisan *phibanra/100);
+        document.getElementById('trigiasauban').innerHTML = trigiasauban.toFixed(2);
+        var loinhuansauban = trigiasauban - taisan;
+        document.getElementById('loinhuansauban').innerHTML = loinhuansauban.toFixed(2);
+        var loinhuanvnd = loinhuansauban * tigia;
+        document.getElementById('loinhuanvnd').innerHTML = numberWithCommas(loinhuanvnd.toFixed());
+    
+                      // gia du tinh cat lo
+        var dtclval = document.getElementById("dutinhcatlo").valueAsNumber;
+        var dtcl = giamua + (giamua * -dtclval/100);
+        document.getElementById('giacatlo').innerHTML = dtcl.toFixed(2);
+    
+        var trigiasaucatlo = taisan - (taisan * dtclval/100) - (taisan * phibanra/100);
+        document.getElementById('trigiasaucatlo').innerHTML = trigiasaucatlo.toFixed(2);
+        var thiethai = taisan - trigiasaucatlo;
+        document.getElementById('thiethai').innerHTML = thiethai.toFixed(2);
+        var thiethaivnd = thiethai * tigia;
+        document.getElementById('thiethaivnd').innerHTML = numberWithCommas(thiethaivnd.toFixed());
+    
+    
+    
+    
+    
+        var giamuonban = document.getElementById("giamuonban").valueAsNumber;
+        var phigiamuonban = document.getElementById("phigiamuonban").valueAsNumber;
+        var chenhlechgiaban = giamuonban - giamua;
+        document.getElementById('chenhlechgiaban').innerHTML = chenhlechgiaban;
+        var loinhuangiamuonbanphantram = (chenhlechgiaban/giamua) * 100 - phigiamuonban;
+        document.getElementById('loinhuangiamuonbanphantram').innerHTML = loinhuangiamuonbanphantram.toFixed(2) + '<span class="percent">%</span>';
+        var loinhuangiamuonban = taisan * loinhuangiamuonbanphantram/100;
+        document.getElementById('loinhuangiamuonban').innerHTML = loinhuangiamuonban.toFixed(2);
+        var loinhuangiamuonbanvnd = loinhuangiamuonban * tigia;
+        document.getElementById('loinhuangiamuonbanvnd').innerHTML = numberWithCommas(loinhuangiamuonbanvnd.toFixed());
+        var tongtaisansaumuonban = taisan + loinhuangiamuonban;
+        document.getElementById('tongtaisansaumuonban').innerHTML = tongtaisansaumuonban.toFixed(2);
+        var tongtaisansaumuonbanvnd = tongtaisansaumuonban * tigia;
+        document.getElementById('tongtaisansaumuonbanvnd').innerHTML = numberWithCommas(tongtaisansaumuonbanvnd.toFixed());
+    
+              //document.getElementById('tiennhanduoc').innerHTML = numberWithCommas(phaitra);
+             // document.getElementById('catlainot').innerHTML = '<small>Phí cố định<small>';
+    
+    
+    
+    }
+    
+    document.getElementById("giamua").addEventListener("input", dutinhban); /// if input sotien
+    document.getElementById("taisandangco").addEventListener("input", dutinhban); /// if input sotien
+    document.getElementById("giamuonban").addEventListener("input", dutinhban); /// if input sotien
+    
+
+
+
+
+    </script>
+<script>
+
+let ws = new WebSocket('wss://stream.binance.com:9443/ws/etheeur@trade')
+    ws.onmessage = (event) => {
+        console.log(event.data);
+    }
+</script>
+</body>
+</html>
